@@ -6,13 +6,14 @@ module Game.State (
 
 import Graphics.UI.GLUT
 
-newtype Vec2 = (GLfloat, GLfloat)
+import Physics.Vector
 
 data Spacecraft = Spacecraft {
     name        :: String,
     mass        :: GLfloat,
     position    :: Vec2,
     orientation :: Vec2,
+    velocity    :: Vec2
   }
 
 data GameState = GameState {

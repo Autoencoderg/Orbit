@@ -4,16 +4,18 @@ module Display.Callback (
   ) where
 
 import Graphics.UI.GLUT
+import Data.IORef
 
 import Game.State
 
 reshape :: ReshapeCallback
-reshape size = viewport $= (Position 0 0, size)
+reshape size = do
+  viewport $= (Position 0 0, size)
 
 display :: IORef GameState -> DisplayCallback
 display gameState = do
   clear [ColorBuffer]
-
+  
   swapBuffers
 
 idle :: IORef GameState -> IdleCallback
